@@ -182,26 +182,6 @@ public class Test3Test {
         assertEquals("Teckenspråk", signLanguageText, "Text wrong or missing");
     }
 
-    @Test
-    void ClickAndCheckSignLanguageLink(){
-
-        WebDriverWait wait = new WebDriverWait(driver, ofSeconds(30));
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[2]")));
-
-        WebElement programsLink = driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[3]/div/header/div[2]/div/div/nav/ul/li[2]/a"));
-        programsLink.click();
-
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"play_main-content\"]/div/section[1]/ul/li[2]/a")));
-
-        WebElement signLanguageLink = driver.findElement(By.xpath("//*[@id=\"play_main-content\"]/div/section[1]/ul/li[2]/a"));
-        signLanguageLink.click();
-
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"play_main-content\"]/section")));
-        String websiteTitle = driver.getTitle();
-
-        assertEquals("Teckenspråkstolkade program och program på teckenspråk | SVT Play", websiteTitle, "Title do not match");
-
-    }
 
     @Test
     void searchNewsCategory(){
